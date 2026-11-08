@@ -1,0 +1,109 @@
+{
+  "app": "Inbox Guard",
+  "model_name": "Multinomial Naive Bayes",
+  "dataset": "UCI SMS Spam Collection",
+  "dataset_url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+  "citation": "Almeida, Hidalgo, and Yamakami, 2011",
+  "rows_raw": 5574,
+  "rows_clean": 5160,
+  "ham_count": 4518,
+  "spam_count": 642,
+  "spam_share": 0.1244,
+  "train_size": 4128,
+  "test_size": 1032,
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true
+  },
+  "selection_rule": "Highest spam precision, then F1, then recall.",
+  "vectorizer": {
+    "name": "Words and pairs, top 3,000",
+    "lowercase": false,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "max_features": 3000,
+    "n_features": 3000
+  },
+  "metrics": {
+    "accuracy": 0.975775,
+    "precision": 0.990476,
+    "recall": 0.8125,
+    "f1": 0.892704,
+    "confusion_matrix": [
+      [
+        903,
+        1
+      ],
+      [
+        24,
+        104
+      ]
+    ],
+    "positive_class": "spam"
+  },
+  "length": {
+    "ham_median_chars": 53,
+    "spam_median_chars": 148
+  },
+  "search": [
+    {
+      "name": "Single words",
+      "selected": false,
+      "accuracy": 0.958333,
+      "precision": 0.988506,
+      "recall": 0.671875,
+      "f1": 0.8,
+      "confusion_matrix": [
+        [
+          903,
+          1
+        ],
+        [
+          42,
+          86
+        ]
+      ]
+    },
+    {
+      "name": "Single words, top 3,000",
+      "selected": false,
+      "accuracy": 0.969961,
+      "precision": 0.989899,
+      "recall": 0.765625,
+      "f1": 0.863436,
+      "confusion_matrix": [
+        [
+          903,
+          1
+        ],
+        [
+          30,
+          98
+        ]
+      ]
+    },
+    {
+      "name": "Words and pairs, top 3,000",
+      "selected": true,
+      "accuracy": 0.975775,
+      "precision": 0.990476,
+      "recall": 0.8125,
+      "f1": 0.892704,
+      "confusion_matrix": [
+        [
+          903,
+          1
+        ],
+        [
+          24,
+          104
+        ]
+      ]
+    }
+  ],
+  "sklearn_version": "1.9.1",
+  "trained_at": "2026-11-09"
+}
